@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anglard Bienestar | Transforma tu cuerpo, mente y energía</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES DE DISEÑO --- */
+        :root {
+            --verde-oscuro: #2E7D6B;
+            --plata: #C0C0C0;
+            --negro-suave: #2c2c2c;
+            --blanco-arena: #f9f9f9;
+            --font-titulos: 'Playfair Display', serif;
+            --font-texto: 'Montserrat', sans-serif;
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-texto);
+            background-color: var(--blanco-arena);
+            color: var(--negro-suave);
+            line-height: 1.6;
+        }
+        
+        /* --- FONDO SENSORIAL --- */
+        /* Para agregar una imagen de fondo, descomenta estas líneas y cambia la URL */
+        /*
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('URL_DE_TU_IMAGEN_AQUI.jpg') no-repeat center center/cover;
+            opacity: 0.1; 
+            z-index: -1;
+        }
+        */
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-titulos);
+            color: var(--verde-oscuro);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; color: var(--negro-suave); font-family: var(--font-texto); font-weight: 400; }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* --- BOTONES (CTA) --- */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .cta-primary {
+            background-color: var(--verde-oscuro);
+            color: var(--plata);
+        }
+        
+        .cta-secondary {
+            background-color: transparent;
+            color: var(--verde-oscuro);
+            border-color: var(--plata);
+        }
+        
+        .cta-large {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* --- BLOQUE 1: HERO (PORTADA) --- */
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+        }
+        .hero h1 {
+            color: var(--verde-oscuro);
+        }
+        .hero h3 {
+            max-width: 600px;
+            margin: 1rem auto 2rem auto;
+        }
+        
+        /* --- BLOQUE 2: ¿POR QUÉ ANGLARD? --- */
+        .why-us {
+            text-align: center;
+        }
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            text-align: left;
+            margin-top: 3rem;
+        }
+        .why-us-grid p {
+            font-style: italic;
+            color: #777;
+        }
+        .why-us-grid ul {
+            list-style: none;
+        }
+        .why-us-grid li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .why-us-grid .check-mark {
+            color: var(--verde-oscuro);
+            font-weight: bold;
+        }
+        
+        /* --- BLOQUE 3: PAQUETES --- */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .package-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .package-card h3 {
+            font-family: var(--font-titulos);
+            color: var(--verde-oscuro);
+            font-size: 1.6rem;
+        }
+        .package-card p {
+            margin: 1rem 0;
+        }
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--verde-oscuro);
+            font-family: var(--font-titulos);
+            margin: 1rem 0;
+        }
+
+        /* --- BLOQUE 4: CATÁLOGO --- */
+        .catalog-list {
+            list-style: none;
+            text-align: center;
+            column-count: 2;
+            column-gap: 2rem;
+        }
+        .catalog-list li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .catalog-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* --- BLOQUE 5: TESTIMONIOS --- */
+        .testimonials-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .testimonial {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-left: 5px solid var(--plata);
+            font-style: italic;
+            font-size: 1.1rem;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        /* --- BLOQUE 6: CTA FINAL --- */
+        .final-cta {
+            text-align: center;
+            background-color: #fff;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+        }
+        .final-cta p {
+            font-family: var(--font-titulos);
+            font-size: 2rem;
+            color: var(--negro-suave);
+            margin-bottom: 2rem;
+        }
+
+        /* --- BLOQUE 7: FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--negro-suave);
+            color: var(--blanco-arena);
+        }
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        footer a {
+            color: var(--plata);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- RESPONSIVE DESIGN (PARA CELULARES) --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .catalog-list {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🌿 Transforma tu cuerpo, mente y energía en 21 días</h1>
+            <h3>El único método en México que integra masajes ancestrales, tarot honesto, aromaterapia y neurociencia aplicada.</h3>
+            <a href="https://wa.me/52TU_NUMERO" class="cta-button cta-primary">👉 Quiero empezar mi transformación</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="why-us">
+            <h2>¿Por qué elegirnos?</h2>
+            <div class="why-us-grid">
+                <div>
+                    <p>Los spas solo relajan tu cuerpo unas horas.</p>
+                    <p>Los brujos prometen lo imposible.</p>
+                    <p>Las consultoras solo ven números.</p>
+                </div>
+                <div>
+                    <h3>✨ Aquí es distinto:</h3>
+                    <ul>
+                        <li><span class="check-mark">✔</span> Personalización total</li>
+                        <li><span class="check-mark">✔</span> Honestidad sin manipulaciones</li>
+                        <li><span class="check-mark">✔</span> Integración cuerpo–mente–espíritu</li>
+                        <li><span class="check-mark">✔</span> Resultados visibles en semanas, no en años</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="packages">
+            <h2>Programas de transformación</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div>
+                        <h3>Descanso Total – 21 días</h3>
+                        <p>3 masajes personalizados + limpia energética + kit aroma/audio</p>
+                    </div>
+                    <div class="package-price">👉 $9,500</div>
+                </div>
+                <div class="package-card">
+                    <div>
+                        <h3>Claridad y Protección – 1 mes</h3>
+                        <p>2 limpias energéticas + 2 lecturas de tarot + 2 masajes + ritual online</p>
+                    </div>
+                    <div class="package-price">👉 $12,500</div>
+                </div>
+                <div class="package-card">
+                    <div>
+                        <h3>Transformación Integral – 8 semanas</h3>
+                        <p>4 masajes + 3 limpias + 2 lecturas + 2 consultorías + acompañamiento directo</p>
+                    </div>
+                    <div class="package-price">👉 $25,000</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                 <a href="https://wa.me/52TU_NUMERO" class="cta-button cta-secondary">💬 Reserva tu programa en WhatsApp</a>
+            </div>
+        </section>
+
+        <section class="catalog">
+            <h2>Más experiencias para ti</h2>
+            <ul class="catalog-list">
+                <li>🌿 Aromaterapia → Roll-ons, aceites, mist.</li>
+                <li>🔮 Lecturas de tarot → 15, 30 y 45 minutos.</li>
+                <li>🪬 Amuletos → amor, protección, suerte, dinero.</li>
+                <li>✨ Trabajos → limpias, aperturas de caminos, endulzamientos.</li>
+                <li>📚 Cursos y talleres → bienestar, masoterapia, esoterismo.</li>
+                <li>🧴 Geles Farmasi → circulación, reducción, articulaciones.</li>
+                <li>🪐 Consultas esotéricas → 30 y 60 min.</li>
+                <li>💼 Consultoría financiera → 1, 5 o 10 horas.</li>
+            </ul>
+            <div class="catalog-cta">
+                 <a href="https://wa.me/52TU_NUMERO" class="cta-button cta-primary">👉 Ver catálogo completo en WhatsApp</a>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Lo que dicen mis clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">“Llegué agotada y en 3 semanas recuperé mi paz.”</div>
+                <div class="testimonial">“Nunca me habían hablado con tanta verdad, me cambió la perspectiva.”</div>
+                <div class="testimonial">“No solo mejoró mi cuerpo, ahora mi vida tiene dirección.”</div>
+            </div>
+        </section>
+        
+        <section class="final-cta">
+            <p>No se trata de comprar un masaje o una lectura.<br>Se trata de transformar tu vida.</p>
+             <a href="https://wa.me/52TU_NUMERO" class="cta-button cta-secondary cta-large">💬 Habla conmigo en WhatsApp ahora</a>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2025 Anglard Bienestar 🌿</p>
+        <p>📍 CDMX | <a href="https://wa.me/52TU_NUMERO">WhatsApp directo</a></p>
+        <p>Transformando vidas con el Método Anglard Neurobienestar</p>
+    </footer>
+
+</body>
+</html>
